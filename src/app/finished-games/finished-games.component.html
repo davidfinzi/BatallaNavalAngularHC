@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="dataRow" *ngFor="let lost of lostGames; let i = index">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Primero</th>
+          <th scope="col">Último</th>
+          <th scope="col">Identificador</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Juan</td>
+          <td>Marcos</td>
+          <td>Cobo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>José</td>
+          <td>Lerda</td>
+          <td>Pepe</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Fabio</td>
+          <td>Fab</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

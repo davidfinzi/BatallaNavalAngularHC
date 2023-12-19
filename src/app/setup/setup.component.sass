@@ -1,0 +1,56 @@
+$colorBtn: #22686b 
+$bcgColor: rgba(240, 248, 255, 0.7)
+
+$fontBangers: "Bangers", cursive 
+	
+.container 
+	width: 100vw 
+	height: 100vh 
+	display: flex 
+	justify-content: center 
+	align-items: center 
+
+.dataRow 
+	background-color: $bcgColor
+	width: 70% 
+	height: 70% 
+	border-radius: 15px
+
+.titulo 
+	font-family: $fontBangers 
+	font-size: 5rem
+
+.difficulty 
+	width: 100% 
+	display: flex 
+	justify-content: center 
+	align-items: center 
+	height: min-content 
+
+	select 
+		width: 15rem 
+		margin-left: 1rem 
+
+.links
+	display: flex
+	flex-direction: column
+
+	a
+		text-decoration: none
+		color: $colorBtn
+		width: max-content 
+
+.btnDiv 
+	width: 100% 
+	font-family: $fontBangers 
+	display: flex 
+	align-items: center 
+	justify-content: center 
+
+	button 
+		background-color: $colorBtn 
+		color: white
+		padding: 0.7rem 2rem 
+		font-size: 2rem 
+		animation: alert 0.9s infinite 
+

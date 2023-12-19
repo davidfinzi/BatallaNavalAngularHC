@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row dataRow p-5" *ngFor="let game of games; let i = index">
+    <div *ngIf="winner" class="finish">
+      <h2>Ganaste!</h2>
+      <p>Le diste a todos los barcos!</p>
+      <button
+        routerLink="/setup"
+        type="button"
+        class="btn"
+        (click)="initGame()"
+        class="retryBtn"
+      >
+        Configuración
+      </button>
+    </div>
+    <div *ngIf="loser" class="finish">
+      <h2>Perdiste...</h2>
+      <p>Te quedaste sin tiros</p>
+      <button
+        routerLink="/setup"
+        type="button"
+        class="btn"
+        (click)="initGame()"
+        class="retryBtn"
+      >
+        Reintentar
+      </button>
+    </div>
+    <div *ngIf="!winner && !loser">
+      <div class="pausado" *ngIf="pause">
+        <button class="btn btn-success" (click)="playGame()">Continuar</button>
+
+        <button
+          class="btn btn-success"
+          (click)="quitGame()"
+          routerLink="/setup"
+        >
+          Quitar
+        </button>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p *ngIf="!pause && difficult !== 'Fácil'">Movimientos {{ movements }}</p>
+        <div *ngIf="!pause && difficult === 'Fácil'"></div>
+        <button *ngIf="!pause" (click)="pauseGame()" class="btn pauseBtn">
+          <fa-icon [icon]="close"></fa-icon>
+        </button>
+      </div>
+      <!-- <div> -->
+      <table *ngIf="!pause" class="tabla">
+        <!-- [style.opacity]="i == player ? 0.5 : 1" -->
+        <tr *ngFor="let row of game.tiles; let j = index">
+          <td
+            *ngFor="let col of row; let k = index"
+            (click)="onAttack($event)"
+            class="battleship-tile"
+            id="t{{ i }}{{ j }}{{ k }}"
+          >
+            {{
+              col.state === "sunken"
+                ? "🚢"
+                : col.state === "water"
+                ? "🌊"
+                : "⚓"
+            }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
